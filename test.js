@@ -8,6 +8,7 @@ var sorts = [
   'strand',
   'bubble',
   'gnome',
+  'comb',
   'insertion',
   'heap',
   'quick'
