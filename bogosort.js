@@ -5,23 +5,27 @@
 // Memory:   1
 // Stable:   Yeah right
 
-bogoSort = function(a) {
-  var len, i,
+bogoSort = function(array) {
+  var len = array.length;
+  if (len < 2) {
+    return array;
+  }
+  var i, _checkSort,
       r = [],
-      isSorted = true;
-  if ((len = a.length) < 2) {
-    return a;
-  }
-  for (i = 0; i < len - 1; i++) {
-    if (a[i] > a[i + 1]) {
-      isSorted = false;
+      a = array.slice(0);
+  _checkSort = function() {
+    for (i = 0; i < len - 1; i++) {
+      if (a[i] > a[i + 1]) {
+        return false;
+      }
     }
-  }
-  if (isSorted) {
+    return true;
+  };
+  if (_checkSort() === true) {
     return a;
   }
-  while (a.length !== 0) {
-    r.push(a.splice(Math.floor(Math.random() * a.length), 1)[0]);
+  while (len !== 0) {
+    r.push(a.splice(Math.floor(Math.random() * len--), 1)[0]);
   }
   return bogoSort(r);
 };
