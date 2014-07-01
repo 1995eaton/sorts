@@ -6,11 +6,15 @@
 // Stable:   Yes
 
 mergeSort = function(array) {
-  if (array.length < 2) {
+  var len = array.length;
+  if (len < 2) {
     return array;
   }
-  var a = array.slice(0);
-  var _merge = function(left, right) {
+  var _merge,
+      a = array.slice(0),
+      mid = Math.floor(len / 2);
+
+  _merge = function(left, right) {
     var result = [];
     while (left.length > 0 || right.length > 0) {
       if (left.length > 0 && right.length > 0) {
@@ -27,7 +31,7 @@ mergeSort = function(array) {
     }
     return result;
   };
-  var mid = Math.floor(a.length / 2);
-  return _merge( mergeSort( a.slice(0, mid )),
-                 mergeSort( a.slice(mid)   ) );
+
+  return _merge( mergeSort( a.slice( 0, mid )),
+                 mergeSort( a.slice( mid    )) );
 };
