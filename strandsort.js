@@ -1,0 +1,33 @@
+var strandSort = function(a) {
+  var highest, newBin, lowBin,
+      i = 0,
+      len = a.length,
+      sortedBins = [],
+      sorted = [];
+  while (a.length !== 0) {
+    highest = Number.NEGATIVE_INFINITY;
+    newBin = [];
+    i = 0;
+    while (i < a.length) {
+      if (a[i] >= highest) {
+        newBin.push(highest = a.splice(i, 1)[0]);
+      } else {
+        i++;
+      }
+    }
+    sortedBins.push(newBin);
+  }
+  while (sorted.length < len) {
+    lowBin = 0;
+    for (i = 0; i < sortedBins.length; i++) {
+      if (sortedBins[i][0] < sortedBins[lowBin][0]) {
+        lowBin = i;
+      }
+    }
+    sorted.push(sortedBins[lowBin].shift());
+    if (sortedBins[lowBin].length === 0) {
+      sortedBins.splice(lowBin, 1);
+    }
+  }
+  return sorted;
+};
