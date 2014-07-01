@@ -5,7 +5,7 @@
 // Memory:   1
 // Stable:   Yes
 
-var bubbleSort = function(array) {
+bubbleSort = function(array) {
   var isSorted = true,
       a = array.slice(0);
   for (var i = 0, l = a.length - 1; i < l; i++) {

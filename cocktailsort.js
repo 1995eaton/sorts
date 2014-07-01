@@ -5,8 +5,9 @@
 // Memory:   1
 // Stable:   Yes
 
-var cocktailSort = function(a) {
+cocktailSort = function(array) {
   var i,
+      a = array.slice(0),
       isSorted = true,
       len = a.length;
   if (len < 2) {

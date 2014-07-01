@@ -5,7 +5,7 @@
 // Memory:   1
 // Stable:   Yes
 
-var gnomeSort = function(array) {
+gnomeSort = function(array) {
   var a = array.slice(0),
       pos = 1;
   while (pos < a.length) {

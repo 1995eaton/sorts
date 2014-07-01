@@ -5,34 +5,38 @@
 // Memory:   1
 // Stable:   No
 
-var heapSort = function(a) {
-  var _sift = function(a, start, end) {
-    var child, swap, r2,
-        root = start;
-    while ((r2 = root * 2) + 1 <= end) {
-      child = r2 + 1;
-      swap = root;
-      if (a[swap] < a[child]) {
-        swap = child;
+heapSort = function(array) {
+
+  var _siftDown,
+      a = array.slice(0),
+      len = array.length,
+      start = Math.floor(len / 2),
+      end = len - 1;
+
+  _siftDown = function(a, start, end) {
+    var child, root = start;
+    while (root * 2 + 1 <= end) {
+      child = root * 2 + 1;
+      if (child + 1 <= end && a[child] < a[child + 1]) {
+        child++;
       }
-      if (child + 1 <= end && a[swap] < a[child + 1]) {
-        swap = child + 1;
-      }
-      if (swap !== root) {
-        a[root] = a[swap] + (a[swap] = a[root], 0);
-        root = swap;
+      if (a[root] < a[child]) {
+        a[root] = a[child] + (a[child] = a[root], 0);
+        root = child;
       } else {
         return;
       }
     }
   };
-  var i, len = a.length;
-  for (i = ~~((len / 2) - 1); i !== -1; i--) {
-    _sift(a, i, len);
+
+  while (start >= 0) {
+    _siftDown(a, start--, len - 1);
   }
-  for (i = len - 1; i !== 0; i--) {
-    a[0] = a[i] + (a[i] = a[0], 0);
-    _sift(a, 0, i - 1);
+  while (end > 0) {
+    a[end] = a[0] + (a[0] = a[end--], 0);
+    _siftDown(a, 0, end);
   }
+
   return a;
+
 };

@@ -5,7 +5,7 @@
 // Memory:   1
 // Stable:   No
 
-var selectionSort = function(array) {
+selectionSort = function(array) {
   var a = array.slice(0);
   var i, j, len, min;
   for (j = 0, len = a.length, min; j < len - 1; j++) {

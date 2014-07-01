@@ -5,7 +5,7 @@
 // Memory:   1
 // Stable:   Yeah right
 
-var bogoSort = function(a) {
+bogoSort = function(a) {
   var len, i,
       r = [],
       isSorted = true;

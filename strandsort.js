@@ -5,7 +5,7 @@
 // Memory:   n
 // Stable:   Yes
 
-var strandSort = function(array) {
+strandSort = function(array) {
   var highest, newBin, lowBin,
       i = 0,
       a = array.slice(0),

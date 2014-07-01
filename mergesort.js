@@ -5,10 +5,11 @@
 // Memory:   n (worst case)
 // Stable:   Yes
 
-var mergeSort = function(a) {
-  if (a.length < 2) {
-    return a;
+mergeSort = function(array) {
+  if (array.length < 2) {
+    return array;
   }
+  var a = array.slice(0);
   var _merge = function(left, right) {
     var result = [];
     while (left.length > 0 || right.length > 0) {

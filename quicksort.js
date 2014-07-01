@@ -5,11 +5,12 @@
 // Memory:   O(n) - O(log(n))
 // Stable:   Yes, unless in-place
 
-var quickSort = function(a) {
-  if (a.length < 2) {
-    return a;
+quickSort = function(array) {
+  if (array.length < 2) {
+    return array;
   }
   var i, l, pivot,
+      a = array.slice(0),
       less    = [],
       equal   = [],
       greater = [];
