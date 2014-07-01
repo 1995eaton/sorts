@@ -7,8 +7,9 @@
 
 var selectionSort = function(array) {
   var a = array.slice(0);
-  for (var j = 0, len = a.length, min; j < len - 1; j++) {
-    for (var i = j + 1, min = j; i < len; i++) {
+  var i, j, len, min;
+  for (j = 0, len = a.length, min; j < len - 1; j++) {
+    for (i = j + 1, min = j; i < len; i++) {
       if (a[i] < a[min]) {
         min = i;
       }
