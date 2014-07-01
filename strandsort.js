@@ -1,3 +1,10 @@
+// http://en.wikipedia.org/wiki/Strand_sort
+// Best:     O(n)
+// Average:  O(n^2)
+// Worst:    O(n^2)
+// Memory:   n
+// Stable:   Yes
+
 var strandSort = function(a) {
   var highest, newBin, lowBin,
       i = 0,

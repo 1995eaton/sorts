@@ -1,3 +1,10 @@
+// http://en.wikipedia.org/wiki/Heapsort
+// Best:     O(n*log(n))
+// Average:  O(n*log(n))
+// Worst:    O(n*log(n))
+// Memory:   1
+// Stable:   No
+
 var heapSort = function(a) {
   var _sift = function(a, start, end) {
     var child, swap, r2,

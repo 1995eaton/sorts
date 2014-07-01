@@ -1,3 +1,10 @@
+// http://en.wikipedia.org/wiki/Quicksort
+// Best:     O(n*log(n))
+// Average:  O(n*log(n))
+// Worst:    O(n^2)
+// Memory:   O(n) - O(log(n))
+// Stable:   Yes, unless in-place
+
 var quickSort = function(a) {
   if (a.length < 2) {
     return a;
@@ -19,5 +26,3 @@ var quickSort = function(a) {
   return quickSort(less)
     .concat(equal, quickSort(greater));
 };
-var a = [0, 1, 0, -1];
-console.log(quickSort(a));

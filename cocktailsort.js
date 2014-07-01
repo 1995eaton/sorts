@@ -1,3 +1,10 @@
+// http://en.wikipedia.org/wiki/Cocktail_sort
+// Best:     O(n)
+// Average:  O(n^2)
+// Worst:    O(n^2)
+// Memory:   1
+// Stable:   Yes
+
 var cocktailSort = function(a) {
   var i,
       isSorted = true,

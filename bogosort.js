@@ -1,3 +1,10 @@
+// http://en.wikipedia.org/wiki/Bogosort
+// Best:     O(n)
+// Average:  O(n*n!)
+// Worst:    O(inf)
+// Memory:   1
+// Stable:   Yeah right
+
 var bogoSort = function(a) {
   var len, i,
       r = [],
