@@ -11,7 +11,8 @@ var sorts = [
   'comb',
   'insertion',
   'heap',
-  'quick'
+  'quick',
+  'quickv2'
 ];
 
 var args = process.argv.slice(2);
