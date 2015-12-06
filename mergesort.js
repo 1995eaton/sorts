@@ -5,33 +5,21 @@
 // Memory:   n (worst case)
 // Stable:   Yes
 
-mergeSort = function(array) {
-  var len = array.length;
-  if (len < 2) {
-    return array;
-  }
-  var _merge,
-      a = array.slice(0),
-      mid = Math.floor(len / 2);
-
-  _merge = function(left, right) {
+mergeSort = (function() {
+  function merge(left, right) {
     var result = [];
-    while (left.length > 0 || right.length > 0) {
-      if (left.length > 0 && right.length > 0) {
-        if (left[0] <= right[0]) {
-          result.push(left.shift());
-        } else {
-          result.push(right.shift());
-        }
-      } else if (left.length > 0) {
-        result.push(left.shift());
-      } else if (right.length > 0) {
-        result.push(right.shift());
-      }
+    for (var i = 0, j = 0; i < left.length && j < right.length;) {
+      if (left[i] < right[j])
+        result.push(left[i++]);
+      else
+        result.push(right[j++]);
     }
-    return result;
+    return result.concat(left.slice(i)).concat(right.slice(j));
+  }
+  return function(array) {
+    if (array.length <= 1) return array;
+    var midpoint = array.length >> 1;
+    return merge(mergeSort(array.slice(0, midpoint)),
+                 mergeSort(array.slice(midpoint)));
   };
-
-  return _merge( mergeSort( a.slice( 0, mid )),
-                 mergeSort( a.slice( mid    )) );
-};
+})();
