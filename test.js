@@ -1,34 +1,38 @@
 #!/usr/bin/env node
 
-  // 'bogo',
 var sorts = [
-  'merge',
-  'cocktail',
-  'selection',
-  'strand',
-  'bubble',
-  'gnome',
-  'comb',
-  'insertion',
+  'radix',
+  'quickv2',
+  'mergev2',
   'heap',
-  'quick',
-  'quickv2'
+  // 'quick',
+  // 'merge',
+  // 'strand',
+  // 'comb',
+  // 'insertion',
+  // 'selection',
+  // 'gnome',
+  // 'cocktail',
+  // 'bubble',
+  // 'bogo',
 ];
 
 var args = process.argv.slice(2);
 
-var stemp = args.slice(0).filter(function(e) {
-  return e % 1 !== 0;
-});
-
-if (stemp.length !== 0) {
-  sorts = stemp.map(function(e) {
-    return e.replace(/(sort)?\.js/, '');
+(function() {
+  var stemp = args.slice(0).filter(function(e) {
+    return e % 1 !== 0;
   });
-  for (var i = 0; i < stemp.length; i++) {
-    args.splice(args.indexOf(stemp[i]), 1);
+
+  if (stemp.length !== 0) {
+    sorts = stemp.map(function(e) {
+      return e.replace(/(sort)?\.js/, '');
+    });
+    for (var i = 0; i < stemp.length; i++) {
+      args.splice(args.indexOf(stemp[i]), 1);
+    }
   }
-}
+})();
 
 (function loadSorts() {
   for (var i = 0; i < sorts.length; i++) {
